@@ -12,10 +12,22 @@ const SignUpPage = () => {
     const [success, setSuccess] = useState(''); // Success message
     const [error, setError] = useState(''); // Error message
     const [showModal, setShowModal] = useState(false); // Modal visibility state
+    const [passwordError, setPasswordError] = useState(''); // Password error message
     const navigate = useNavigate();
+
+    const isStrongPassword = (password) => {
+        // Regular expression for a strong password
+        const strongPasswordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return strongPasswordPattern.test(password);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!isStrongPassword(password)) {
+            setPasswordError('Password must be at least 8 characters long, contain letters, numbers, and special characters.');
+            return;
+        }
+
         const userData = { name, email, password };
         setLoading(true); // Start loading
 
@@ -23,6 +35,7 @@ const SignUpPage = () => {
             await registerUser(userData);
             setSuccess('Congratulations! Your account has been successfully created!'); // Set success message
             setError('');
+            setPasswordError(''); // Clear password error
 
             // Show success modal for 2 seconds before redirecting
             setShowModal(true);
@@ -33,6 +46,7 @@ const SignUpPage = () => {
             console.error('Registration failed:', error);
             setError('This email is already in use. Please try another one.'); // Set error message
             setSuccess(''); // Clear any previous success message
+            setPasswordError(''); // Clear password error
         } finally {
             setLoading(false); // Stop loading
         }
@@ -77,9 +91,13 @@ const SignUpPage = () => {
                             className="form-control"
                             placeholder="Create a strong password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                setPasswordError(''); // Clear error on input change
+                            }}
                             required
                         />
+                        {passwordError && <small className="text-danger">{passwordError}</small>}
                     </div>
                     <button type="submit" className="btn btn-pink btn-block w-100 mt-3" disabled={loading}>
                         {loading ? (

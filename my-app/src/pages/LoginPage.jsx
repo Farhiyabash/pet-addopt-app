@@ -14,8 +14,19 @@ const LoginPage = ({ setIsAuthenticated }) => {
     const [showModal, setShowModal] = useState(false); // Modal visibility state
     const navigate = useNavigate();
 
+    const isStrongPassword = (password) => {
+        // Regular expression for a strong password
+        const strongPasswordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return strongPasswordPattern.test(password);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!isStrongPassword(password)) {
+            setError('Password must be at least 8 characters long, contain letters, numbers, and special characters.');
+            return;
+        }
+
         const credentials = { email, password };
         setLoading(true);
 
@@ -71,6 +82,7 @@ const LoginPage = ({ setIsAuthenticated }) => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
+                        {error && <small className="text-danger">{error}</small>} {/* Display password error */}
                     </div>
                     <button type="submit" className="btn btn-pink btn-block w-100 mt-3" disabled={loading}>
                         {loading ? (
@@ -80,20 +92,8 @@ const LoginPage = ({ setIsAuthenticated }) => {
                         )}
                     </button>
                 </form>
-                {error && (
-                    <div className="alert alert-danger mt-3">
-                        {error}
-                    </div>
-                )}
+                {success && <div className="alert alert-success mt-3">{success}</div>}
             </div>
-
-            {/* Confetti animation */}
-            <Confetti 
-                width={window.innerWidth} 
-                height={window.innerHeight} 
-                numberOfPieces={200} 
-                recycle={false} 
-            />
 
             {/* Modal for Successful Login */}
             <Modal show={showModal} onHide={handleClose} centered>
@@ -102,7 +102,7 @@ const LoginPage = ({ setIsAuthenticated }) => {
                 </Modal.Header>
                 <Modal.Body className="text-center">
                     <h5>{success}</h5>
-                    <p className="text-muted">You will be redirected to your pets page shortly.</p>
+                    <p className="text-muted">You will be redirected to your pets shortly.</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <button className="btn btn-pink" onClick={handleClose}>
@@ -110,6 +110,9 @@ const LoginPage = ({ setIsAuthenticated }) => {
                     </button>
                 </Modal.Footer>
             </Modal>
+
+            {/* Confetti effect */}
+            {showModal && <Confetti />}
         </div>
     );
 };

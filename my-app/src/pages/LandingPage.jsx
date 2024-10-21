@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './LandingPage.css'; // Custom CSS for animations and styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import pet1 from '../assets/pet1.jpg';
@@ -9,17 +9,16 @@ import logo1 from '../assets/logo1.png';
 import logo2 from '../assets/logo2.png';
 import logo3 from '../assets/logo3.png';
 import logo4 from '../assets/logo4.png';
+import heroImage from '../assets/hero.jpg'; // Add your hero image
 import { Modal, Button } from 'react-bootstrap';
 
 const LandingPage = () => {
     const [showPopup, setShowPopup] = useState(true);
 
-    // Handles the pop-up close event
     const handleClosePopup = () => {
         setShowPopup(false);
     };
 
-    // Click handlers for navigation
     const handleAdoptNow = () => {
         window.location.href = '/signup';
     };
@@ -29,7 +28,7 @@ const LandingPage = () => {
     };
 
     const handleSubscribe = (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
         const email = e.target.email.value;
         console.log('Subscribed with email:', email);
     };
@@ -88,11 +87,12 @@ const LandingPage = () => {
 
             {/* Hero Section */}
             <header className="hero-section text-center bg-pink-gradient">
+                <img src={heroImage} alt="Hero" className="hero-image" />
                 <div className="hero-overlay">
                     <div className="hero-content">
                         <h1 className="animated-text display-4 text-white">Find Your New Best Friend</h1>
                         <p className="animated-subtext text-white">Adopt the perfect companion today!</p>
-                        <button onClick={handleAdoptNow} className="btn btn-white btn-lg mt-3 shadow">Adopt Now</button>
+                        <button onClick={handleAdoptNow} className="btn btn-white btn-lg mt-3 shadow btn-pink">Adopt Now</button>
                     </div>
                 </div>
             </header>
@@ -182,13 +182,17 @@ const LandingPage = () => {
             </section>
 
             {/* Footer */}
-            <footer className="footer-section text-center py-4 bg-pink-gradient text-white">
-                <p>&copy; 2024 Pawsitive Connection. All Rights Reserved.</p>
-                <ul className="social-icons d-flex justify-content-center">
-                    <li><a href="#" className="text-white"><i className="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" className="text-white"><i className="fab fa-twitter"></i></a></li>
-                    <li><a href="#" className="text-white"><i className="fab fa-instagram"></i></a></li>
-                </ul>
+            <footer className="footer-section text-white py-5 bg-pink-gradient">
+                <div className="container text-center">
+                    <h2 className="footer-title">Connect with Us</h2>
+                    <ul className="social-icons d-flex justify-content-center my-3">
+                        <li><a href="#" className="text-white"><i className="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" className="text-white"><i className="fab fa-twitter"></i></a></li>
+                        <li><a href="#" className="text-white"><i className="fab fa-instagram"></i></a></li>
+                        <li><a href="#" className="text-white"><i className="fab fa-linkedin"></i></a></li>
+                    </ul>
+                    <p>&copy; 2024 Pawsitive Connection. All Rights Reserved.</p>
+                </div>
             </footer>
         </div>
     );

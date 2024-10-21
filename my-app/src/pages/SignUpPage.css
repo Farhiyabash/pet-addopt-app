@@ -21,3 +21,33 @@
 .text-pink {
     color: #ff7f9c; /* Pink text color */
 }
+.signup-container {
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.btn-pink {
+    background-color: #d5006d; /* Pink color */
+    color: white;
+}
+
+.btn-pink:hover {
+    background-color: #c2006b; /* Darker pink for hover effect */
+}
+
+.text-pink {
+    color: #d5006d; /* Pink text color */
+}
+
+/* Add animations for success messages */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.alert {
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in effect for alerts */
+}

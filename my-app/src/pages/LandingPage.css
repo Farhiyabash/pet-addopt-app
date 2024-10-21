@@ -1,11 +1,51 @@
-/* Background and color scheme */
-.bg-pink-gradient {
-    background-image: url('../assets/hero-background.jpg');
-    height: 100vh;
+.landing-page {
+    font-family: 'Arial', sans-serif;
 }
 
-.text-pink {
-    color: #ff69b4;
+.hero-section {
+    position: relative;
+    color: white;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.bg-pink-gradient {
+    background: linear-gradient(90deg, #ff69b4, #ffcccb);
 }
 
 .btn-pink {
@@ -18,38 +58,100 @@
     border-color: #ff69b4;
 }
 
-.btn-pink:hover, .btn-outline-pink:hover {
-    background-color: #ff1493;
+.footer-section {
+    background-color: #d5006d;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    margin: 0 15px;
+}
+
+.company-logo {
+    width: 80px;
+    margin: 15px;
+}
+.landing-page {
+    font-family: 'Arial', sans-serif;
+}
+
+.hero-section {
+    position: relative;
     color: white;
+    padding: 50px 0; /* Adjusted padding for a smaller hero section */
 }
 
-/* Card styling */
+.hero-image {
+    width: 70%; /* Changed width to 70% */
+    max-width: 600px; /* Set a maximum width */
+    height: auto;
+    opacity: 0.8;
+    border-radius: 20px; /* Optional: Add border radius for a rounded effect */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
 .card {
-    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 20px;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card-title {
+    font-size: 1.5rem;
 }
 
-/* Pet images */
-.pet-image {
-    height: 250px;
-    object-fit: cover;
+.bg-pink-gradient {
+    background: linear-gradient(90deg, #ff69b4, #ffcccb);
 }
 
-/* Pop-up animation */
-.popup-card {
-    animation-duration: 1s;
+.btn-pink {
+    background-color: #ff69b4;
+    border: none;
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.btn-outline-pink {
+    color: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.footer-section {
+    background-color: #d5006d;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    margin: 0 15px;
+}
+
+.company-logo {
+    width: 80px;
+    margin: 15px;
 }

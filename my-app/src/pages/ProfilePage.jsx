@@ -32,7 +32,6 @@ const ProfilePage = ({ setIsAuthenticated }) => {
                     <div className="card-body p-5 text-center">
                         <h1 className="card-title text-pink">Welcome, {profile.name}!</h1>
                         <p className="card-text">Email: <strong>{profile.email}</strong></p>
-                        <p className="card-text">Member since: <strong>{new Date(profile.createdAt).toLocaleDateString()}</strong></p>
                         <hr />
                         <h5 className="card-subtitle mb-3 text-dark-pink">Profile Summary</h5>
                         <p className="card-text">

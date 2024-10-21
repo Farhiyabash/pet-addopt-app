@@ -79,6 +79,7 @@ class PetType(db.Model):
 
 
 # --------------- ADOPTION REQUEST MODEL ---------------
+
 class AdoptionRequest(db.Model):
     __tablename__ = 'adoption_requests'
 

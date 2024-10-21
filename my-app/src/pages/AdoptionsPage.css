@@ -87,3 +87,22 @@
     color: red;
     font-size: 20px;
 }
+/* src/pages/AdoptionsPage.css */
+
+.adoptions-page {
+    padding: 20px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 20px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.card {
+    margin: 10px 0;
+}

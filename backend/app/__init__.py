@@ -15,6 +15,8 @@ def create_app():
     # Initialize CORS with specified origins
     CORS(app, resources={r"/*": {"origins": Config.CORS_ORIGINS}})
 
+
+
     # Initialize database and migration support
     db.init_app(app)
     migrate = Migrate(app, db)

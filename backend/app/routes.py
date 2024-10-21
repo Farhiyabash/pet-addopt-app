@@ -386,8 +386,8 @@ def delete_adoption(id):
     db.session.commit()
     
     return jsonify({'message': 'Adoption deleted successfully.'}), 200
-
 # ---------- ADOPTION REQUEST ROUTES ----------
+
 @routes_app.route('/adoption-requests', methods=['GET'])
 @jwt_required()
 def get_adoption_requests():
@@ -406,7 +406,7 @@ def create_adoption_request():
         pet_id=data['pet_id'],
         user_id=data['user_id'],
         message=data['message'],
-        status='Pending'
+        status='pending'  # Use lowercase to match your default status
     )
     db.session.add(new_request)
     db.session.commit()

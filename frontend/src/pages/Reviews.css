@@ -1,0 +1,73 @@
+body {
+    background-color: #1a1a1a; /* Dark background for better neon effect */
+    color: #fff; /* White text for visibility */
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+  }
+  
+  .container {
+    padding: 20px;
+    max-width: 800px; /* Limit the max width for better alignment */
+    margin: auto;
+    position: relative; /* For positioning pseudo-elements */
+  }
+  
+  .neon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 204, 0.2), rgba(255, 0, 204, 0.2), rgba(0, 204, 255, 0.2));
+    opacity: 0.5;
+    filter: blur(30px); /* Blur for a glowing effect */
+    z-index: -1; /* Send it behind other content */
+  }
+  
+  .review-card {
+    background: rgba(255, 255, 255, 0.1); /* Translucent background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    margin: 10px 0; /* Space between reviews */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Soft shadow for depth */
+  }
+  
+  .review-form {
+    background: rgba(255, 255, 255, 0.1); /* Translucent background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Soft shadow for depth */
+  }
+  
+  .review-form input,
+  .review-form textarea {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque for inputs */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    padding: 10px;
+    color: #000; /* Black text for inputs */
+    width: 100%; /* Full width for inputs */
+    margin-bottom: 10px; /* Space between inputs */
+  }
+  
+  .review-form button {
+    background: #ff0080; /* Neon pink button */
+    color: white; /* White text for button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Smooth transition for hover */
+  }
+  
+  .review-form button:hover {
+    background: #ff3399; /* Darker pink on hover */
+  }
+  
+  .review-title {
+    font-size: 1.5em; /* Larger title font */
+    margin-bottom: 10px; /* Space below title */
+  }
+  
+  .review-text {
+    font-size: 1em; /* Regular size for review text */
+  }

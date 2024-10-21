@@ -1,0 +1,38 @@
+/* src/pages/ProfilePage.css */
+
+body {
+    background-color: white; /* White background for the entire body */
+}
+
+.profile-page {
+    padding: 20px; /* Optional padding for the profile page */
+}
+
+.card {
+    background-color: #f8e3f5; /* Light pink background for the card */
+    border-radius: 10px; /* Rounded corners for the card */
+}
+
+.card-title {
+    color: #d5006d; /* Dark pink color for the title */
+}
+
+.btn-dark-pink {
+    background-color: #d5006d; /* Dark pink button background */
+    border-color: #d5006d; /* Dark pink button border */
+    color: white; /* White text color for buttons */
+}
+
+.btn-dark-pink:hover {
+    background-color: #a20052; /* Darker pink for hover effect */
+    border-color: #a20052; /* Darker pink for hover effect */
+}
+.welcome-message {
+    color: #FF69B4; /* Change this to your desired color */
+    animation: bounce 1s; /* Example animation; adjust as needed */
+    font-size: 1.5rem; /* Adjust font size */
+    margin: 20px 0; /* Add some margin */
+    text-align: center; /* Center align the text */
+}
+
+/* Add any other desired styles */

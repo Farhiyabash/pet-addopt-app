@@ -1,0 +1,39 @@
+/* App.css */
+:root {
+  --dark-blue: #003366; /* Dark Blue */
+  --light-blue: #66b3ff; /* Light Blue */
+}
+
+body {
+  background-color: var(--light-blue); /* Light Blue as the global background color */
+  color: var(--dark-blue); /* Dark Blue for text */
+  margin: 0;
+  font-family: Arial, sans-serif; /* Set a default font */
+}
+
+.container {
+  padding: 20px; /* Add some padding to the container for better layout */
+}
+
+.card {
+  background-color: white; /* White background for cards */
+  border: 1px solid var(--dark-blue); /* Border color */
+}
+/* src/App.css */
+body {
+  background-color: white; /* Main background color */
+}
+
+.btn-dark-pink {
+  background-color: #D5006D; /* Dark pink color */
+  border-color: #D5006D;
+}
+
+.btn-dark-pink:hover {
+  background-color: #A2004D; /* Darker pink on hover */
+  border-color: #A2004D;
+}
+
+.text-dark {
+  color: #333; /* Dark text color */
+}

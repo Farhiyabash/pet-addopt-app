@@ -1,0 +1,38 @@
+/* src/pages/PetDetails.css */
+.pet-details-card {
+    max-width: 800px; /* Set a maximum width for the card */
+    margin: auto; /* Center the card */
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.pet-details-card:hover {
+    transform: scale(1.02);
+}
+
+.pet-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+    max-height: 400px; /* Set a maximum height for images */
+    width: 100%; /* Make the image take full width */
+}
+
+.pet-name {
+    font-size: 2rem; /* Increase font size for the pet's name */
+    font-weight: bold;
+    color: #b85c8a; /* Custom color for the pet's name */
+}
+
+.adopt-button {
+    background-color: #b85c8a; /* Match the button color with pet name */
+    border: none;
+    padding: 10px 20px; /* Add padding for a better button size */
+    font-size: 1.2rem; /* Increase button font size */
+}
+
+.adopt-button:hover {
+    background-color: #a04876; /* Darker shade on hover */
+}

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { loginUser } from '../services/userService';
 import { useNavigate } from 'react-router-dom';
+import './SignUpPage.css'; // Use the same CSS file for consistent styling
+import { Modal, Spinner } from 'react-bootstrap'; // Import Modal and Spinner from Bootstrap
+import Confetti from 'react-confetti'; // Import confetti package
 
-const LoginPage = ({ setIsAuthenticated }) => { // Accept setIsAuthenticated as a prop
+const LoginPage = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState('');
-    const [error, setError] = useState('');
+    const [success, setSuccess] = useState(''); // Success message
+    const [error, setError] = useState(''); // Error message
+    const [showModal, setShowModal] = useState(false); // Modal visibility state
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -20,9 +24,14 @@ const LoginPage = ({ setIsAuthenticated }) => { // Accept setIsAuthenticated as 
             localStorage.setItem('access_token', data.accessToken);
             localStorage.setItem('refresh_token', data.refreshToken);
             setIsAuthenticated(true); // Set authenticated state to true
-            setSuccess('Successfully logged in!');
+            
+            // Show success message and modal
+            setSuccess('🎉🌸 Successfully logged in! Welcome back! 🌸🎉'); // Add emojis
             setError('');
-            navigate('/pets'); // Redirect to the pets page immediately
+            setShowModal(true);
+            setTimeout(() => {
+                navigate('/pets'); // Redirect to the pets page after modal is shown
+            }, 3000); // Adjust the time as needed (3000 ms = 3 seconds)
         } catch (error) {
             console.error('Login failed:', error);
             setError('Login failed. Please check your credentials.');
@@ -32,8 +41,10 @@ const LoginPage = ({ setIsAuthenticated }) => { // Accept setIsAuthenticated as 
         }
     };
 
+    const handleClose = () => setShowModal(false); // Close modal
+
     return (
-        <div className="login-container d-flex justify-content-center align-items-center vh-100">
+        <div className="signup-container d-flex justify-content-center align-items-center vh-100">
             <div className="card shadow p-4">
                 <h2 className="text-center mb-4">Login to Your Account</h2>
                 <form onSubmit={handleSubmit}>
@@ -61,17 +72,44 @@ const LoginPage = ({ setIsAuthenticated }) => { // Accept setIsAuthenticated as 
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block w-100 mt-3" disabled={loading}>
+                    <button type="submit" className="btn btn-pink btn-block w-100 mt-3" disabled={loading}>
                         {loading ? (
-                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <Spinner animation="border" role="status" size="sm" />
                         ) : (
                             'Login'
                         )}
                     </button>
                 </form>
-                {success && <div className="alert alert-success mt-3">{success}</div>}
-                {error && <div className="alert alert-danger mt-3">{error}</div>}
+                {error && (
+                    <div className="alert alert-danger mt-3">
+                        {error}
+                    </div>
+                )}
             </div>
+
+            {/* Confetti animation */}
+            <Confetti 
+                width={window.innerWidth} 
+                height={window.innerHeight} 
+                numberOfPieces={200} 
+                recycle={false} 
+            />
+
+            {/* Modal for Successful Login */}
+            <Modal show={showModal} onHide={handleClose} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="text-pink">Login Successful</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="text-center">
+                    <h5>{success}</h5>
+                    <p className="text-muted">You will be redirected to your pets page shortly.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className="btn btn-pink" onClick={handleClose}>
+                        Close
+                    </button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { fetchPets } from '../services/PetService';
 import { getUserProfile } from '../services/userService';
 import PetList from '../components/PetList';
-import Spinner from '../components/Spinner'; // Spinner component for loading states
-import Alert from '../components/Alert'; // Alert component for error handling
-import HomeNavbar from '../components/HomeNavbar'; // Import the HomeNavbar component
+import Spinner from '../components/Spinner'; 
+import Alert from '../components/Alert'; 
+import HomeNavbar from '../components/HomeNavbar'; 
 import './PetsPage.css';
 
 const PetsPage = () => {
     const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [profile, setProfile] = useState(null); // State to hold user profile
+    const [profile, setProfile] = useState(null); 
 
     useEffect(() => {
         const loadPets = async () => {
@@ -28,14 +28,14 @@ const PetsPage = () => {
         const fetchProfile = async () => {
             try {
                 const data = await getUserProfile();
-                setProfile(data); // Set the profile state
+                setProfile(data); 
             } catch (error) {
                 console.error('Error fetching profile:', error);
             }
         };
 
         loadPets();
-        fetchProfile(); // Fetch profile data
+        fetchProfile(); 
     }, []);
 
     if (loading) return <Spinner />;
@@ -43,12 +43,12 @@ const PetsPage = () => {
 
     return (
         <div className="pets-page">
-            <HomeNavbar /> {/* Display the navigation bar */}
+            <HomeNavbar /> 
             <div className="container mt-5">
                 {profile && (
-                    <div className="alert alert-success text-center mt-3">
-                        <h2 className="welcome-message animated bounce">
-                            Welcome back, {profile.name}! Your pawsome adventure starts now! Let’s find your next furry friend!
+                    <div className="alert alert-success text-center mt-3 profile-prompt animated bounce">
+                        <h2>
+                            Welcome back, <span className="profile-name">{profile.name}</span>! Your pawsome adventure starts now! Let’s find your next furry friend!
                         </h2>
                     </div>
                 )}

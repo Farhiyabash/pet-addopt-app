@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { registerUser } from '../services/userService';
 import { useNavigate } from 'react-router-dom';
 import './SignUpPage.css'; // Import custom CSS
+import { Modal, Spinner } from 'react-bootstrap'; // Import Modal and Spinner from Bootstrap
 
 const SignUpPage = () => {
     const [name, setName] = useState('');
@@ -11,6 +11,7 @@ const SignUpPage = () => {
     const [loading, setLoading] = useState(false); // Loading state
     const [success, setSuccess] = useState(''); // Success message
     const [error, setError] = useState(''); // Error message
+    const [showModal, setShowModal] = useState(false); // Modal visibility state
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -20,21 +21,24 @@ const SignUpPage = () => {
 
         try {
             await registerUser(userData);
-            setSuccess('User successfully registered!'); // Set success message
-            setError(''); 
-            
-            // Show loading spinner for 2 seconds before redirecting
+            setSuccess('Congratulations! Your account has been successfully created!'); // Set success message
+            setError('');
+
+            // Show success modal for 2 seconds before redirecting
+            setShowModal(true);
             setTimeout(() => {
                 navigate('/login'); // Redirect to login page
-            }, 2000); // Adjust the time as needed (2000 ms = 2 seconds)
+            }, 3000); // Adjust the time as needed (3000 ms = 3 seconds)
         } catch (error) {
             console.error('Registration failed:', error);
-            setError('Registration failed. Please try again.'); // Set error message
+            setError('This email is already in use. Please try another one.'); // Set error message
             setSuccess(''); // Clear any previous success message
         } finally {
             setLoading(false); // Stop loading
         }
     };
+
+    const handleClose = () => setShowModal(false); // Close modal
 
     return (
         <div className="signup-container d-flex justify-content-center align-items-center vh-100">
@@ -77,9 +81,9 @@ const SignUpPage = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block w-100 mt-3" disabled={loading}>
+                    <button type="submit" className="btn btn-pink btn-block w-100 mt-3" disabled={loading}>
                         {loading ? (
-                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            <Spinner animation="border" role="status" size="sm" />
                         ) : (
                             'Sign Up'
                         )}
@@ -88,6 +92,22 @@ const SignUpPage = () => {
                 {success && <div className="alert alert-success mt-3">{success}</div>}
                 {error && <div className="alert alert-danger mt-3">{error}</div>}
             </div>
+
+            {/* Modal for Successful Registration */}
+            <Modal show={showModal} onHide={handleClose} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="text-pink">Registration Successful</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="text-center">
+                    <h5>{success}</h5>
+                    <p className="text-muted">You will be redirected to the login page shortly.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className="btn btn-pink" onClick={handleClose}>
+                        Close
+                    </button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

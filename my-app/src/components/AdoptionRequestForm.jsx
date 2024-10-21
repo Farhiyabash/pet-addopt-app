@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createAdoptionRequest } from '../services/AdoptionRequestService';
+import './AdoptionRequestForm.css'; // Custom CSS for extra styles
 
 const AdoptionRequestForm = () => {
     const [message, setMessage] = useState('');
@@ -24,37 +25,40 @@ const AdoptionRequestForm = () => {
     };
 
     return (
-        <div>
-            <h2>Create Adoption Request</h2>
+        <div className="adoption-form-container p-4 shadow-sm rounded bg-light">
+            <h2 className="mb-4">Create Adoption Request</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Message:</label>
+                <div className="mb-3">
+                    <label className="form-label">Message:</label>
                     <textarea
+                        className="form-control"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Pet ID:</label>
+                <div className="mb-3">
+                    <label className="form-label">Pet ID:</label>
                     <input
                         type="number"
+                        className="form-control"
                         value={petId}
                         onChange={(e) => setPetId(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>User ID:</label>
+                <div className="mb-3">
+                    <label className="form-label">User ID:</label>
                     <input
                         type="number"
+                        className="form-control"
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
                         required
                     />
                 </div>
-                <button type="submit">Submit Request</button>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <button type="submit" className="btn btn-primary w-100">Submit Request</button>
+                {error && <p className="text-danger mt-3">{error}</p>}
             </form>
         </div>
     );

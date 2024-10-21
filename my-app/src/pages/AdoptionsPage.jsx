@@ -4,9 +4,10 @@ import AdoptionRequestList from '../components/AdoptionRequestList';
 
 const AdoptionsPage = () => {
     return (
-        <div>
-            <h1>Adoption Requests</h1>
+        <div className="container">
+            <h1 className="text-center mb-5">Manage Your Adoption Requests</h1>
             <AdoptionRequestForm />
+            <hr />
             <AdoptionRequestList />
         </div>
     );

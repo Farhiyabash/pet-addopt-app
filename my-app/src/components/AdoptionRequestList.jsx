@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAdoptionRequests } from '../services/AdoptionRequestService';
+import AdoptionCard from './AdoptionCard'; // Importing the card component
+import './AdoptionRequestList.css'; // Custom CSS for list styling
 
 const AdoptionRequestList = () => {
     const [requests, setRequests] = useState([]);
@@ -19,16 +21,16 @@ const AdoptionRequestList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Adoption Requests</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <ul>
+        <div className="adoption-request-list-container">
+            <h2 className="mb-4">Adoption Requests</h2>
+            {error && <p className="text-danger">{error}</p>}
+            <div className="row">
                 {requests.map((request) => (
-                    <li key={request.id}>
-                        <strong>ID:</strong> {request.id} | <strong>Message:</strong> {request.message} | <strong>Status:</strong> {request.status}
-                    </li>
+                    <div className="col-md-4 mb-4" key={request.id}>
+                        <AdoptionCard request={request} />
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

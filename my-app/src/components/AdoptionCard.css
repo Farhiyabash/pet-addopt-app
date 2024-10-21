@@ -1,0 +1,21 @@
+.adoption-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.adoption-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.adoption-card .card-title {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.adoption-card .card-text {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}

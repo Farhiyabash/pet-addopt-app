@@ -21,9 +21,9 @@ const AdoptionRequestList = () => {
     }, []);
 
     return (
-        <div className="adoption-request-list-container">
-            <h2 className="mb-4">Adoption Requests</h2>
-            {error && <p className="text-danger">{error}</p>}
+        <div className="adoption-request-list-container container my-5">
+            <h2 className="text-center mb-4 text-pink">Adoption Requests</h2>
+            {error && <p className="text-danger text-center">{error}</p>}
             <div className="row">
                 {requests.map((request) => (
                     <div className="col-md-4 mb-4" key={request.id}>

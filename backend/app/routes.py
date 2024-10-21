@@ -433,8 +433,12 @@ def update_adoption_request(id):
 @routes_app.route('/adoption-requests/<int:id>', methods=['DELETE'])
 @jwt_required()
 def delete_adoption_request(id):
+    # Fetch the adoption request by ID, or return a 404 error if not found
     adoption_request = AdoptionRequest.query.get_or_404(id)
+    
+    # Delete the request from the database
     db.session.delete(adoption_request)
     db.session.commit()
     
+    # Return a success message
     return jsonify({'message': 'Adoption request deleted successfully.'}), 200

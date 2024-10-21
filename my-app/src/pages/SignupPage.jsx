@@ -21,7 +21,7 @@ const SignUpPage = () => {
         try {
             await registerUser(userData);
             setSuccess('User successfully registered!'); // Set success message
-            setError(''); // Clear any previous error message
+            setError(''); 
             
             // Show loading spinner for 2 seconds before redirecting
             setTimeout(() => {

@@ -25,8 +25,8 @@ const AdoptionRequestForm = () => {
     };
 
     return (
-        <div className="adoption-form-container p-4 shadow-sm rounded bg-light">
-            <h2 className="mb-4">Create Adoption Request</h2>
+        <div className="adoption-form-container p-4 shadow-sm rounded bg-white my-5">
+            <h2 className="mb-4 text-center text-pink">Create Adoption Request</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Message:</label>
@@ -57,8 +57,8 @@ const AdoptionRequestForm = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Submit Request</button>
-                {error && <p className="text-danger mt-3">{error}</p>}
+                <button type="submit" className="btn btn-pink w-100">Submit Request</button>
+                {error && <p className="text-danger mt-3 text-center">{error}</p>}
             </form>
         </div>
     );

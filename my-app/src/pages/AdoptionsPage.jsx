@@ -1,6 +1,6 @@
 import React from 'react';
 import AdoptionRequestForm from '../components/AdoptionRequestForm';
-import AdoptionRequestList from '../components/AdoptionRequestList';
+import AdoptionRequestList from '../components/AdoptionRequestCard';
 
 const AdoptionsPage = () => {
     return (

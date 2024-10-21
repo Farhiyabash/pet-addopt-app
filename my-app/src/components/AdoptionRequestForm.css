@@ -1,25 +1,13 @@
+/* AdoptionRequestForm.css */
 .adoption-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
+    border: 2px solid #ff69b4; /* Pink border */
 }
 
-.adoption-form-container h2 {
-    color: #2980b9;
-    font-weight: 700;
+.btn-pink {
+    background-color: #ff69b4; /* Pink background for button */
+    color: white; /* White text */
 }
 
-.adoption-form-container .form-label {
-    color: #34495e;
-}
-
-.adoption-form-container .btn-primary {
-    background-color: #e74c3c;
-    border-color: #e74c3c;
-    transition: background-color 0.3s ease;
-}
-
-.adoption-form-container .btn-primary:hover {
-    background-color: #c0392b;
-    border-color: #c0392b;
+.btn-pink:hover {
+    background-color: #ff1493; /* Darker pink on hover */
 }

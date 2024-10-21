@@ -14,6 +14,7 @@ const PetCard = ({ pet }) => {
                 />
                 <div className="card-body">
                     <h5 className="card-title">{pet.name || 'Unknown Pet'}</h5>
+                    <p className="card-text"><strong>Pet ID:</strong> {pet.id}</p> {/* Show pet ID */}
                     <Link to={`/pets/${pet.id}`} className="btn btn-primary adopt-button">View Details</Link>
                 </div>
             </div>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { fetchPetById } from '../services/PetService'; // Import API call
 import './PetDetails.css'; // Import custom CSS for additional styling
 
 const PetDetails = () => {
     const { id } = useParams(); // Get pet ID from URL
+    const navigate = useNavigate(); // Initialize the navigate function
     const [pet, setPet] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -23,6 +24,10 @@ const PetDetails = () => {
 
         getPetDetails();
     }, [id]);
+
+    const handleAdoptClick = () => {
+        navigate('/adoptions'); // Navigate to the adoption page when the button is clicked
+    };
 
     if (loading) {
         return <p className="text-center">Loading...</p>;
@@ -46,14 +51,19 @@ const PetDetails = () => {
                         </div>
                         <div className="col-md-7">
                             <div className="card-body">
-                            <h1 className="adoption-header text-center animated fadeIn">These are the Adoption Pets!</h1>
-
+                                <h1 className="adoption-header text-center animated fadeIn">These are the Adoption Pets!</h1>
                                 <h3 className="card-title pet-name">{pet.name}</h3>
+                                <p className="card-text"><strong>Pet ID:</strong> {pet.id}</p> {/* Display Pet ID */}
                                 <p className="card-text"><strong>Breed:</strong> {pet.breed}</p>
                                 <p className="card-text"><strong>Age:</strong> {pet.age ? `${pet.age} years` : 'Unknown age'}</p>
                                 <p className="card-text"><strong>Description:</strong> {pet.description || 'No description available.'}</p>
                                 <div className="mt-4">
-                                    <button className="btn btn-primary adopt-button">Adopt Me!</button>
+                                    <button 
+                                        className="btn btn-primary adopt-button" 
+                                        onClick={handleAdoptClick} // Add onClick event
+                                    >
+                                        Adopt Me!
+                                    </button>
                                 </div>
                             </div>
                         </div>

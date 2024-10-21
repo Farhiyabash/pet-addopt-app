@@ -98,16 +98,6 @@ with app.app_context():
 
     db.session.commit()
 
-    # Seed Adoption Requests
-    for _ in range(30):  # Create 30 adoption requests
-        adoption_request = AdoptionRequest(
-            message=fake.text(max_nb_chars=200),  # Ensure this matches your model
-            user_id=random.choice(users).id,
-            pet_id=random.choice(pets).id,
-            status=random.choice(['pending', 'approved', 'declined'])
-        )
-        db.session.add(adoption_request)
-
-    db.session.commit()
+    # **Adoption Requests are not seeded, so this section is omitted**
 
     print("Database seeded successfully!")

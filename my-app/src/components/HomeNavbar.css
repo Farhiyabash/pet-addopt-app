@@ -1,45 +1,32 @@
-/* src/components/HomeNavbar.css */
-
-:root {
-    --dark-pink: #d81b60; /* Dark pink color */
-    --white: #ffffff; /* White color */
-    --text-dark: #333; /* Dark text color for contrast */
+.navbar {
+    background-color: #f8f9fa; /* Light background for navbar */
 }
 
-.animated-navbar {
-    background-color: var(--white);
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.logo {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the logo circular */
+    object-fit: cover; /* Ensures the image fits within the circular shape */
 }
 
-.animated-navbar:hover {
-    background-color: var(--dark-pink);
-    transform: translateY(-2px);
+.profile-container {
+    display: flex;
+    align-items: center;
 }
 
-.navbar-nav .nav-link {
-    color: var(--text-dark);
-    transition: color 0.3s ease-in-out;
+.profile-icon {
+    color: #007bff; /* Bootstrap primary color */
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--dark-pink);
+.logout-button {
+    color: #dc3545; /* Bootstrap danger color for logout */
 }
 
-.navbar-brand {
-    font-size: 1.8rem; /* Increase font size for brand */
-    font-weight: bold; /* Make brand bold */
-    transition: color 0.3s ease-in-out;
+/* Additional Styling */
+.nav-link {
+    transition: color 0.3s ease;
 }
 
-.navbar-brand:hover {
-    color: var(--dark-pink);
-}
-
-.navbar-toggler {
-    border: none; /* Remove border */
-}
-
-.navbar-toggler-icon {
-    background-color: var(--dark-pink); /* Change icon color */
+.nav-link:hover {
+    color: #007bff; /* Change color on hover */
 }

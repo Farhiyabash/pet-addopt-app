@@ -1,5 +1,14 @@
+/* src/index.css or global styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Change to your selected font */
+    background-color: #ffffff; /* Ensuring the background is the same as the ProfilePage */
+    margin: 0; /* Reset default margin */
+}
+
+/* src/pages/ProfilePage.css */
 .pets-page {
-    background-color: white;
+    background-color: #ffffff; /* Same as ProfilePage background */
+    min-height: 100vh;
 }
 
 .profile-prompt {

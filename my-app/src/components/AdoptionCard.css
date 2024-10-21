@@ -1,10 +1,26 @@
-/* AdoptionCard.css */
 .adoption-card {
-    border: 1px solid #ff69b4; /* Border with pink color */
-    border-radius: 10px; /* Rounded corners for cards */
-    transition: transform 0.2s; /* Smooth scaling effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
 }
 
 .adoption-card:hover {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.adoption-card .card-title {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.adoption-card .card-text {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.adoption-card .btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
 }
